@@ -1,23 +1,21 @@
+// src/App.js
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';  // Ensure Navbar is correctly exported
+import Home from './pages/home';           // Default export
+import { Workouts } from './pages/Workouts';  // Named export
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <Features />
-      <Testimonials />
-      <Pricing />
-      <FinalCTA />
-      <Footer />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/workouts" element={<Workouts />} />
+        {/* Add other routes similarly */}
+      </Routes>
+    </Router>
   );
 }
 
